@@ -1,0 +1,50 @@
+package com.pulse.utilsLib.plugin.adventure
+
+import net.kyori.adventure.key.Key
+import net.kyori.adventure.sound.Sound
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.minimessage.MiniMessage
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+
+fun org.bukkit.Sound.sound(
+    source: Sound.Source = Sound.Source.MASTER,
+    volume: Float = 1f,
+    pitch: Float = 1f
+) = Sound.sound(
+    this.key,
+    source,
+    volume,
+    pitch
+)
+
+fun String.sound(
+    source: Sound.Source = Sound.Source.MASTER,
+    volume: Float = 1f,
+    pitch: Float = 1f
+) = Sound.sound(
+    this.key(),
+    source,
+    volume,
+    pitch
+)
+
+fun String.key() = Key.key(this)
+
+fun String.cmp(vararg placeholders: Pair<String, Component>): Component {
+    val resolver = TagResolver.resolver(
+        placeholders.map { (key, value) ->
+            Placeholder.component(key, value)
+        }
+    )
+
+    return MiniMessage.miniMessage().deserialize(this, resolver)
+}
+
+fun String.cmp(color: Boolean = false) =
+    if (color)
+        MiniMessage.miniMessage().deserialize(this)
+    else
+        Component.text(this)
+
+fun Any?.cmp() = Component.text(this.toString())
