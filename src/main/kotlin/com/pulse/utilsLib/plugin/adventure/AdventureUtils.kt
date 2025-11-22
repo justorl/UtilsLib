@@ -6,6 +6,8 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+import net.kyori.adventure.title.Title
+import java.time.Duration
 
 fun org.bukkit.Sound.sound(
     source: Sound.Source = Sound.Source.MASTER,
@@ -48,3 +50,6 @@ fun String.cmp(color: Boolean = false) =
         Component.text(this)
 
 fun Any?.cmp() = Component.text(this.toString())
+
+fun Title.title(title: Component, subtitle: Component, fadeIn: Long, stay: Long, fadeOut: Long): Title =
+    Title.title(title, subtitle, Title.Times.times(Duration.ofMillis(fadeIn), Duration.ofMillis(stay), Duration.ofMillis(fadeOut)))
