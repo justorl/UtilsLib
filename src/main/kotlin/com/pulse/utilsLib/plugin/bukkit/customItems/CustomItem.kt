@@ -20,9 +20,9 @@ class CustomItem(
         private set
 
     init {
-        recipe?.let { factory ->
+        if (recipe != null) {
             val key = NamespacedKey(plugin, id)
-            val r = factory(key, item)
+            val r = recipe(key, item)
             Bukkit.addRecipe(r)
             this.recipe = r
         }

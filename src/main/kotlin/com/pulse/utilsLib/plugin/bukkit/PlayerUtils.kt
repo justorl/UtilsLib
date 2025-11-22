@@ -3,7 +3,10 @@ package com.pulse.utilsLib.plugin.bukkit
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.Material
+import org.bukkit.attribute.Attributable
 import org.bukkit.attribute.Attribute
+import org.bukkit.entity.Damageable
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
@@ -23,11 +26,12 @@ fun Player.pull(target: Location, strength: Double = 1.0) {
 fun Player.getPlayerHead(): ItemStack {
     val head = ItemStack(Material.PLAYER_HEAD)
 
-    head.meta<SkullMeta> {
+    return head.meta<SkullMeta> {
         owningPlayer = player
     }
-
-    return head
 }
 
-fun Player.getMaxHP(): Double = player?.getAttribute(Attribute.MAX_HEALTH)?.baseValue ?: player?.health ?: 0.0
+val Attributable.maxHP: Double
+    get() = getAttribute(Attribute.MAX_HEALTH)?.baseValue
+        ?: (this as? Damageable)?.health
+        ?: 0.0

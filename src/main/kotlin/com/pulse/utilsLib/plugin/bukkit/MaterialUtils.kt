@@ -51,23 +51,39 @@ fun Block.getShift(face: BlockFace): Location {
     return this.location.add(face.direction)
 }
 
-fun Location.getInRadius(radius: Int): MutableList<Location> {
-    val locs = mutableListOf<Location>()
-    val world = this.world ?: return locs
+fun Location.getInRadius(radius: Int): MutableList<Location> = getInRadius(radius, radius, radius)
 
-    for (x in -radius..radius) {
-        for (y in -radius..radius) {
-            for (z in -radius..radius) {
-                val loc = Location(
-                    world,
-                    this.blockX + x.toDouble(),
-                    this.blockY + y.toDouble(),
-                    this.blockZ + z.toDouble()
+fun Location.getInRadius(radiusX: Int, radiusY: Int, radiusZ: Int): MutableList<Location> {
+    val world = world ?: return mutableListOf()
+
+    val sizeX = radiusX * 2 + 1
+    val sizeY = radiusY * 2 + 1
+    val sizeZ = radiusZ * 2 + 1
+
+    val locs = ArrayList<Location>(sizeX * sizeY * sizeZ)
+
+    for (x in -radiusX..radiusX)
+        for (y in -radiusY..radiusY)
+            for (z in -radiusZ..radiusZ)
+                locs.add(
+                    Location(world, blockX + x.toDouble(), blockY + y.toDouble(), blockZ + z.toDouble())
                 )
 
-                locs.add(loc)
-            }
-        }
-    }
     return locs
+}
+
+fun Block.getBlocksNearby(radius: Int, type: Material? = null): List<Block> = location.getBlocksNearby(radius, type)
+
+fun Location.getBlocksNearby(radius: Int, type: Material? = null): List<Block> {
+    val world = world ?: return emptyList()
+    val blocks = mutableListOf<Block>()
+
+    for (x in -radius..radius)
+        for (y in -radius..radius)
+            for (z in -radius..radius) {
+                val block = world.getBlockAt(blockX + x, blockY + y, blockZ + z)
+                if (type == null || block.type == type) blocks.add(block)
+            }
+
+    return blocks
 }

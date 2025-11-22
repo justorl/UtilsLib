@@ -1,5 +1,6 @@
 package com.pulse.utilsLib.plugin.bukkit
 
+import com.pulse.utilsLib.general.classExists
 import com.pulse.utilsLib.plugin.Instance.plugin
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
@@ -14,3 +15,12 @@ fun addEventListener(listener: Listener): Closeable {
         HandlerList.unregisterAll(listener)
     }
 }
+
+fun hasFoliaLib(): Boolean =
+    classExists("com.tcoded.folialib.FoliaLib")
+
+fun hasCommandApi(): Boolean =
+    classExists("dev.jorel.commandapi.CommandAPI")
+
+fun hasScoreboardLib(): Boolean =
+    classExists("net.megavex.scoreboardlibrary.api.ScoreboardLibrary")

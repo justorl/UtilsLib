@@ -1,8 +1,6 @@
 package com.pulse.utilsLib.plugin
 
-import com.pulse.utilsLib.general.hasCommandApi
-import com.pulse.utilsLib.general.hasFoliaLib
-import com.pulse.utilsLib.general.hasScoreboardLib
+import com.pulse.utilsLib.plugin.bukkit.*
 import com.tcoded.folialib.FoliaLib
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIPaperConfig

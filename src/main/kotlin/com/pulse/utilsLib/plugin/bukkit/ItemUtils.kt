@@ -13,10 +13,11 @@ import org.bukkit.inventory.meta.ItemMeta
 import org.bukkit.persistence.PersistentDataType
 import java.io.Closeable
 
-inline fun <reified T : ItemMeta> ItemStack.meta(block: T.() -> Unit) {
+inline fun <reified T : ItemMeta> ItemStack.meta(block: T.() -> Unit): ItemStack {
     val meta = itemMeta as T
     meta.block()
     itemMeta = meta
+    return this
 }
 
 fun onItemUse(listener: (Player, ItemStack) -> Unit): Closeable {
@@ -37,23 +38,17 @@ fun ItemStack.generic(): ItemStack {
 fun ItemStack.ignoreEnchants(): ItemStack {
     if (itemMeta !is Damageable) return this
 
-    val item = clone()
-    item.meta<Damageable> {
-        damage = 0
+    return clone().meta<Damageable> {
         removeEnchantments()
     }
-    return item
 }
 
 fun ItemStack.ignoreDurability(): ItemStack {
     if (itemMeta !is Damageable) return this
 
-    val item = clone()
-    item.meta<Damageable> {
-        damage = 0
+    return clone().meta<Damageable> {
         removeEnchantments()
     }
-    return item
 }
 
 fun Player.take(stack: ItemStack, amount: Int = 1) {
