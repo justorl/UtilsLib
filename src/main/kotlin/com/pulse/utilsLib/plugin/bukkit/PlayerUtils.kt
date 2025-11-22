@@ -1,12 +1,13 @@
 package com.pulse.utilsLib.plugin.bukkit
 
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.attribute.Attributable
 import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Damageable
-import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
@@ -35,3 +36,6 @@ val Attributable.maxHP: Double
     get() = getAttribute(Attribute.MAX_HEALTH)?.baseValue
         ?: (this as? Damageable)?.health
         ?: 0.0
+
+fun Player.showTitle(title: Component, subtitle: Component, fadeIn: Int, stay: Int, fadeOut: Int) =
+    showTitle(Title.title(title, subtitle, fadeIn, stay, fadeOut))

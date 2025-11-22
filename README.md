@@ -4,7 +4,7 @@ A common shared code between my plugins. Feel free to use it yourself, but there
 ```kts
 maven("https://jitpack.io") // add this to your repositories
 
-implementation("com.github.justorl:UtilsLib:1.1.0") // add this to your dependencies
+implementation("com.github.justorl:UtilsLib:1.1.1") // add this to your dependencies
 ```
 
 # Maven shading
