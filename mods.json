@@ -49,6 +49,25 @@
         }
       ]
     },
+        {
+      "modid": "mcsrranked",
+      "name": "Antigone",
+      "description": "Fixes a rare server deadlock in Minecraft 1.16.1",
+      "sources": "https://github.com/Minecraft-Java-Edition-Speedrunning/antigone",
+      "versions": [
+        {
+          "target_version": [
+            "1.16.1"
+          ],
+          "version": "5.5.6",
+          "url": "https://github.com/Minecraft-Java-Edition-Speedrunning/legal-mods/raw/a24f4729e62811fbdcd4fa303da4ed3a7ee350c8/legal-mods/antigone/1.16.1/antigone-1.16.1-2.0.0.jar",
+          "hash": "0f4d7d3f0e369abc0198dab8ce5ca63061babc59c122339905dbe3df9c5381d598645409440f4575d0f5be7ea5872535b0dbd79c0184c3a7c99393fb2e41e40d",
+          "intermediary": [
+            "net.fabricmc:intermediary"
+          ]
+        }
+      ]
+    },
     {
       "modid": "antiresourcereload",
       "name": "AntiResourceReload",
