@@ -2365,7 +2365,7 @@
           ],
           "version": "1.1.2+1.16.1",
           "url": "https://github.com/Minecraft-Java-Edition-Speedrunning/legal-mods/raw/a24f4729e62811fbdcd4fa303da4ed3a7ee350c8/legal-mods/mcsrfairplay/1.16.1/mcsrfairplay-1.1.2+1.16.1.jar",
-          "hash": "dbcefc64ede6e6b192fd232efac717e1a546fc9da2405d80b95c5603cc98937c4037abebcc0b50cd0cbd19d6d486ed45cecf7823618b9d3a49fd0386d5cee79f",
+          "hash": "0f4d7d3f0e369abc0198dab8ce5ca63061babc59c122339905dbe3df9c5381d598645409440f4575d0f5be7ea5872535b0dbd79c0184c3a7c99393fb2e41e40d",
           "intermediary": [
             "net.fabricmc:intermediary"
           ]
