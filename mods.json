@@ -4997,7 +4997,7 @@
           ],
           "version": "1.0.1",
           "url": "https://github.com/Minecraft-Java-Edition-Speedrunning/legal-mods/raw/a24f4729e62811fbdcd4fa303da4ed3a7ee350c8/legal-mods/voyager/1.14-1.16.5/voyager-1.0.1.jar",
-          "hash": "0cfb2c228bd09387aafe20ef79dd8b883ddbaba5527d89dc6148fb47f7c268c0896016de092433179a0431aee17f8891203ea83a",
+          "hash": "5bfd9ddeb8d664ce8b540c422f70e7524b69c5829cb3fad137176567da6493d28b5e66c3133c98430fd577c32c1d21a787d2ffcdb174c46a6d1a5cf6fa88e9e1",
           "intermediary": [
             "net.fabricmc:intermediary"
           ]
