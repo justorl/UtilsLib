@@ -17,6 +17,6 @@ implementation("com.github.justorl:UtilsLib:1.1.1") // add this to your dependen
 <dependency>
   <groupId>com.github.justorl</groupId>
   <artifactId>UtilsLib</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.2</version>
 </dependency>
 ```
