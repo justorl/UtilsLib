@@ -1,10 +1,16 @@
 package com.pulse.utilsLib.general
 
-enum class TimeUnits(val prefix: String, val seconds: Long) {
-    YEAR("г", 365L * 86400L),
-    MONTH("мес", 30L * 86400L),
-    DAY("дн", 86400L),
-    HOUR("ч", 3600L),
-    MINUTE("мин", 60L),
-    SECOND("сек", 1L)
+enum class TimeUnits(
+    val ru: String,
+    val en: String,
+    val seconds: Long
+) {
+    MILLENNIUM("тыс.л", "mil", 1000L * 365 * 86400),
+    CENTURY("в.", "c", 100L * 365 * 86400),
+    YEAR("г.", "y", 365L * 86400),
+    MONTH("мес.", "mo", 30L * 86400),
+    DAY("д.", "d", 86400L),
+    HOUR("ч.", "h", 3600L),
+    MINUTE("мин.", "min", 60L),
+    SECOND("с.", "s", 1L)
 }

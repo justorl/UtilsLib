@@ -31,9 +31,11 @@ fun onItemUse(listener: (Player, ItemStack) -> Unit): Closeable {
     })
 }
 
-fun ItemStack.generic(): ItemStack {
-    return ignoreEnchants().ignoreDurability()
-}
+fun ItemStack.isSame(item: ItemStack): Boolean =
+    this.generic() == item.generic()
+
+fun ItemStack.generic(): ItemStack =
+    ignoreEnchants().ignoreDurability()
 
 fun ItemStack.ignoreEnchants(): ItemStack {
     if (itemMeta !is Damageable) return this
@@ -47,7 +49,7 @@ fun ItemStack.ignoreDurability(): ItemStack {
     if (itemMeta !is Damageable) return this
 
     return clone().meta<Damageable> {
-        removeEnchantments()
+        damage = 0
     }
 }
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "1.1.2"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -19,8 +19,9 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("net.megavex:scoreboard-library-api:2.4.3")
-    compileOnly("dev.jorel:commandapi-paper-shade:11.0.0")
+    compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
+    implementation("io.github.classgraph:classgraph:4.8.158")
 }
 
 val targetJavaVersion = 21

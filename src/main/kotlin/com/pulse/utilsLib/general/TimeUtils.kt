@@ -16,7 +16,7 @@ fun rateLimit(key: String, duration: Long): Boolean {
     return false
 }
 
-fun Long.duration(max: Int = 2, default: String = "0 сек"): String {
+fun Long.duration(max: Int = 2, default: String = "0 сек", ru: Boolean = true): String {
     if (this <= 0) return default
 
     var remaining = this
@@ -27,7 +27,7 @@ fun Long.duration(max: Int = 2, default: String = "0 сек"): String {
             if (remaining >= unit.seconds) {
                 append(remaining / unit.seconds)
                     .append(" ")
-                    .append(unit.prefix)
+                   .append(if (ru) unit.ru else unit.en)
 
                 remaining %= unit.seconds
                 count++

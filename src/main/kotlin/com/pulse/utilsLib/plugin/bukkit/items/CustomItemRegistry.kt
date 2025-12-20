@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin.bukkit.customItems
+package com.pulse.utilsLib.plugin.bukkit.items
 
 import com.pulse.utilsLib.plugin.Instance.plugin
 import com.pulse.utilsLib.plugin.bukkit.onItemUse

@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin.bukkit
+package com.pulse.utilsLib.plugin.folialib
 
 import com.pulse.utilsLib.plugin.Instance.foliaLib
 import com.tcoded.folialib.wrapper.task.WrappedTask

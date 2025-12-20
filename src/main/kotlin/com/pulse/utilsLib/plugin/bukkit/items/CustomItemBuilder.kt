@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin.bukkit.customItems
+package com.pulse.utilsLib.plugin.bukkit.items
 
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player

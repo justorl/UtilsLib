@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin.bukkit.customItems
+package com.pulse.utilsLib.plugin.bukkit.items
 
 import com.pulse.utilsLib.plugin.Instance.plugin
 import org.bukkit.Bukkit
@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.Recipe
 import org.bukkit.persistence.PersistentDataType
 
+// Original code by Cymaera SkyTorch, this is modified version
 class CustomItem(
     val id: String,
     defaultItem: ItemStack,
