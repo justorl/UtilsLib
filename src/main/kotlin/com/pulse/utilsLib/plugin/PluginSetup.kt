@@ -14,16 +14,18 @@ abstract class PluginSetup(id: String, val verboseOutput: Boolean = false) : Jav
     override fun onEnable() {
         if (hasCommandApi()) {
             CommandAPI.onEnable()
-        } else if (Instance.plugin.verboseOutput) println("UtilsLib: No CommandAPI")
+        } else if (Instance.plugin.verboseOutput) println("[$ID - UtilsLib] No CommandAPI found")
 
         if (hasFoliaLib()) {
             Instance.foliaLib = FoliaLib(this)
-        } else if (Instance.plugin.verboseOutput) println("UtilsLib: No FoliaLib")
+        } else if (Instance.plugin.verboseOutput) println("[$ID - UtilsLib] No FoliaLib found")
 
         if (hasScoreboardLib()) {
             Instance.scoreboardLib = ScoreboardLibrary.loadScoreboardLibrary(this)
-        } else if (Instance.plugin.verboseOutput) println("UtilsLib: No ScoreboardLib")
+        } else if (Instance.plugin.verboseOutput) println("[$ID - UtilsLib] No ScoreboardLib found")
 
+        if (verboseOutput) println("[$ID - UtilsLib] Loading listeners..")
+        ListenerLoader(this).load("com.pulse.utilsLib.plugin.custom")
         ListenerLoader(this).load()
     }
 

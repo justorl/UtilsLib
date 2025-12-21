@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.enchantment.PrepareItemEnchantEvent
 import org.bukkit.event.inventory.PrepareAnvilEvent
 
-object UnenchantableListener : ListenerSetup() {
+class UnenchantableListener : ListenerSetup() {
     @EventHandler
     fun onPreEnchant(e: PrepareItemEnchantEvent) {
         val item = e.item

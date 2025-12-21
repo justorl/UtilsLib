@@ -4,38 +4,44 @@ import com.pulse.utilsLib.plugin.bukkit.hasClassGraph
 import io.github.classgraph.ClassGraph
 import io.github.classgraph.ClassInfoList
 import org.bukkit.Bukkit
-import org.bukkit.plugin.Plugin
 
 class ListenerLoader(
-    private val plugin: Plugin
+    private val plugin: PluginSetup
 ) {
-    fun load() {
+    fun load(pkg: String? = null) {
+        val verbose = Instance.plugin.verboseOutput;
+        val id = plugin.ID
+        val pkg = pkg ?: plugin::class.java.`package`.name
+
         if (!hasClassGraph()) {
-            if (Instance.plugin.verboseOutput) println("UtilsLib: No classgraph available")
+            if (verbose) println("[$id - UtilsLib] No classgraph available")
             return
         }
 
+        var listenersCount = 0
+
         ClassGraph()
             .enableAllInfo()
-            .acceptPackages(plugin::class.java.`package`.name)
+            .acceptPackages(pkg)
             .enableExternalClasses()
             .scan().use { scanResult ->
                 val info: ClassInfoList = scanResult.getSubclasses(ListenerSetup::class.java)
 
-                if (Instance.plugin.verboseOutput) println("UtilsLib: Found ${info.size} listeners")
                 info.forEach { classInfo ->
                     try {
                         val listener = classInfo.loadClass(ListenerSetup::class.java).getDeclaredConstructor().newInstance()
                         if (listener.autoRegister) {
                             Bukkit.getPluginManager().registerEvents(listener, plugin)
-                            if (Instance.plugin.verboseOutput) println("UtilsLib: Registered listener: ${listener::class.simpleName}")
+                            if (verbose) println("[$id - UtilsLib] Registered listener: ${listener::class.simpleName}")
+                            listenersCount++
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        println("UtilsLib: Could not register listener: ${classInfo.simpleName}")
+                        println("[$id - UtilsLib] Could not register listener: ${classInfo.simpleName}")
                         return@forEach
                     }
                 }
         }
+        if (verbose) println("[$id - UtilsLib] Done registering in $pkg! Registered $listenersCount listeners")
     }
 }
