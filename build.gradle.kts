@@ -3,11 +3,10 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     kotlin("jvm") version "2.3.0-Beta2"
     id("com.gradleup.shadow") version "8.3.0"
-    id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
 group = "com.pulse"
-version = "1.2.0"
+version = "1.2.1"
 
 repositories {
     mavenCentral()
@@ -21,15 +20,19 @@ dependencies {
     compileOnly("net.megavex:scoreboard-library-api:2.4.3")
     compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
-    implementation("io.github.classgraph:classgraph:4.8.158")
+    implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
 val targetJavaVersion = 21
 kotlin { jvmToolchain(targetJavaVersion) }
 
-tasks.processResources {
-    val props = mapOf("version" to version)
-    inputs.properties(props)
-    filteringCharset = "UTF-8"
-    filesMatching("plugin.yml") { expand(props) }
+tasks {
+    shadowJar {
+        relocate("nonapi.io.github.classgraph", "${project.group}.utilsLib.shadow.classgraph.nonapi")
+        relocate("io.github.classgraph", "${project.group}.utilsLib.shadow.classgraph")
+    }
+
+    build {
+        dependsOn(shadowJar)
+    }
 }

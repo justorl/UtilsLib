@@ -1,5 +1,6 @@
 package com.pulse.utilsLib.plugin.bukkit
 
+import com.pulse.utilsLib.plugin.adventure.audience
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit
@@ -13,6 +14,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
 
 val allPlayers get() = Bukkit.getOnlinePlayers()
+val allAudiences get() = allPlayers.audience()
 
 fun Player.pull(target: Location, strength: Double = 1.0) {
     val from = this.location.toVector()

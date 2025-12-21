@@ -24,3 +24,6 @@ fun hasCommandApi(): Boolean =
 
 fun hasScoreboardLib(): Boolean =
     classExists("net.megavex.scoreboardlibrary.api.ScoreboardLibrary")
+
+fun hasClassGraph(): Boolean =
+    classExists("io.github.classgraph.ClassGraph")
