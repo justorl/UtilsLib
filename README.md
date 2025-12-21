@@ -37,7 +37,7 @@ Add the dependency:
 
 ```kts
 dependencies {
-    implementation("com.github.justorl:UtilsLib:1.1.1")
+    implementation("com.github.justorl:UtilsLib:1.2.0")
 }
 ```
 
