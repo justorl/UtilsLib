@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "1.2.0"
+version = "1.2.1"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     compileOnly("net.megavex:scoreboard-library-api:2.4.3")
     compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
-    implementation("io.github.classgraph:classgraph:4.8.158")
+    implementation("org.reflections:reflections:0.10.2")
 }
 
 val targetJavaVersion = 21

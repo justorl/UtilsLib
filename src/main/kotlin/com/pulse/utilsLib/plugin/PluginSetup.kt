@@ -24,7 +24,7 @@ abstract class PluginSetup(id: String) : JavaPlugin() {
             Instance.scoreboardLib = ScoreboardLibrary.loadScoreboardLibrary(this)
         }
 
-        ListenerSetup.listeners.forEach { it.register() }
+        ListenerLoader(this).load()
     }
 
     override fun onLoad() {

@@ -5,6 +5,7 @@ import com.pulse.utilsLib.plugin.bukkit.craftsLeft
 import com.pulse.utilsLib.plugin.bukkit.editCrafts
 import com.pulse.utilsLib.plugin.bukkit.isCraftable
 import com.pulse.utilsLib.plugin.bukkit.isMaxCraftable
+import com.pulse.utilsLib.plugin.bukkit.items.CustomItem
 import com.pulse.utilsLib.plugin.bukkit.items.CustomItemRegistry
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -14,7 +15,7 @@ import org.bukkit.event.inventory.PrepareItemCraftEvent
 import org.bukkit.inventory.ItemStack
 
 object CraftsListener : ListenerSetup() {
-    var postCraftAction: ((player: Player, item: ItemStack, craftsLeft: Int) -> Unit)? = null
+    var postCraftAction: ((player: Player, item: ItemStack, customItem: CustomItem, craftsLeft: Int) -> Unit)? = null
 
     @EventHandler
     fun onCraft(e: CraftItemEvent) {
@@ -25,11 +26,13 @@ object CraftsListener : ListenerSetup() {
             e.inventory.result = ItemStack(Material.AIR)
             e.isCancelled = true
         } else if (item.isMaxCraftable()) {
-            val itemName = CustomItemRegistry.get(item)?.item?.itemMeta?.itemName() ?: item.itemMeta.itemName()
             item.editCrafts(-1)
 
-            val craftsLeft = item.craftsLeft() ?: 0
-            postCraftAction?.invoke(player, item, craftsLeft)
+            if (postCraftAction != null) {
+                val customItem = CustomItemRegistry.get(item)!!
+                val craftsLeft = item.craftsLeft() ?: 0
+                postCraftAction?.invoke(player, item, customItem, craftsLeft)
+            }
         }
     }
 
