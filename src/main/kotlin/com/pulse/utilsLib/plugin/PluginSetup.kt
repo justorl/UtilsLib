@@ -33,7 +33,7 @@ abstract class PluginSetup(id: String, val verboseOutput: Boolean = false) : Jav
         if (hasCommandApi()) {
             CommandAPI.onLoad(CommandAPIPaperConfig(this)
                 .setNamespace(ID)
-                .verboseOutput(true)
+                .verboseOutput(verboseOutput)
             )
         }
     }
