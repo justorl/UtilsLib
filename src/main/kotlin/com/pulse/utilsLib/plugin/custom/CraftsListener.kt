@@ -14,7 +14,7 @@ import org.bukkit.event.inventory.CraftItemEvent
 import org.bukkit.event.inventory.PrepareItemCraftEvent
 import org.bukkit.inventory.ItemStack
 
-object CraftsListener : ListenerSetup() {
+class CraftsListener : ListenerSetup() {
     var postCraftAction: ((player: Player, item: ItemStack, customItem: CustomItem, craftsLeft: Int) -> Unit)? = null
 
     @EventHandler
