@@ -1,7 +1,7 @@
-package com.pulse.utilsLib.plugin.bukkit.items
+package com.pulse.utilsLib.plugins.bukkit.items
 
-import com.pulse.utilsLib.plugin.Instance.plugin
-import com.pulse.utilsLib.plugin.bukkit.onItemUse
+import com.pulse.utilsLib.plugins.bukkit.Instance.plugin
+import com.pulse.utilsLib.plugins.bukkit.utils.onItemUse
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import kotlin.collections.find

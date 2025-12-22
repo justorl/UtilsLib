@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.plugin.bukkit.items
+package com.pulse.utilsLib.plugins.bukkit.items
 
-import com.pulse.utilsLib.plugin.Instance.plugin
+import com.pulse.utilsLib.plugins.bukkit.Instance.plugin
 import org.bukkit.Bukkit
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player

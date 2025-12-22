@@ -1,15 +1,13 @@
-package com.pulse.utilsLib.plugin.adventure
+package com.pulse.utilsLib.plugins.adventure.utils
 
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.sound.Sound
 import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.ComponentLike
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.title.Title
-import org.bukkit.entity.Player
 import java.time.Duration
 
 fun org.bukkit.Sound.sound(

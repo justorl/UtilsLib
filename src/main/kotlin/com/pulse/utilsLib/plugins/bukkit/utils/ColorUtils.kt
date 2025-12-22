@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin.bukkit
+package com.pulse.utilsLib.plugins.bukkit.utils
 
 import org.bukkit.Color
 

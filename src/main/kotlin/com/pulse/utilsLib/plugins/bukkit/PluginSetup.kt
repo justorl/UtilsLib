@@ -1,6 +1,9 @@
-package com.pulse.utilsLib.plugin
+package com.pulse.utilsLib.plugins.bukkit
 
-import com.pulse.utilsLib.plugin.bukkit.*
+import com.pulse.utilsLib.plugins.bukkit.utils.hasCommandApi
+import com.pulse.utilsLib.plugins.bukkit.utils.hasFoliaLib
+import com.pulse.utilsLib.plugins.bukkit.utils.hasScoreboardLib
+import com.pulse.utilsLib.plugins.commandapi.CommandLoader
 import com.tcoded.folialib.FoliaLib
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIPaperConfig
@@ -14,6 +17,8 @@ abstract class PluginSetup(id: String, val verboseOutput: Boolean = false) : Jav
     override fun onEnable() {
         if (hasCommandApi()) {
             CommandAPI.onEnable()
+            if (verboseOutput) println("[$ID - UtilsLib] Loading commands..")
+            CommandLoader(this).load()
         } else if (Instance.plugin.verboseOutput) println("[$ID - UtilsLib] No CommandAPI found")
 
         if (hasFoliaLib()) {
@@ -25,7 +30,7 @@ abstract class PluginSetup(id: String, val verboseOutput: Boolean = false) : Jav
         } else if (Instance.plugin.verboseOutput) println("[$ID - UtilsLib] No ScoreboardLib found")
 
         if (verboseOutput) println("[$ID - UtilsLib] Loading listeners..")
-        ListenerLoader(this).load("com.pulse.utilsLib.plugin.custom")
+        ListenerLoader(this).load("com.pulse.utilsLib.plugin.bukkit.custom")
         ListenerLoader(this).load()
     }
 

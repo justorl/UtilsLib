@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin
+package com.pulse.utilsLib.plugins.bukkit
 
 import org.bukkit.Bukkit
 import org.bukkit.event.Listener

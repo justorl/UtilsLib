@@ -1,12 +1,13 @@
-package com.pulse.utilsLib.plugin.bukkit
+package com.pulse.utilsLib.plugins.bukkit.utils
 
-import com.pulse.utilsLib.plugin.Instance.plugin
+import com.pulse.utilsLib.plugins.bukkit.Instance.plugin
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.Action
+import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.Damageable
 import org.bukkit.inventory.meta.ItemMeta
@@ -23,7 +24,7 @@ inline fun <reified T : ItemMeta> ItemStack.meta(block: T.() -> Unit): ItemStack
 fun onItemUse(listener: (Player, ItemStack) -> Unit): Closeable {
     return addEventListener(object : Listener {
         @EventHandler
-        fun onPlayerInteract(event: org.bukkit.event.player.PlayerInteractEvent) {
+        fun onPlayerInteract(event: PlayerInteractEvent) {
             if (event.action != Action.RIGHT_CLICK_AIR && event.action != Action.RIGHT_CLICK_BLOCK) return
             if (event.action == Action.RIGHT_CLICK_BLOCK && !(event.clickedBlock?.type?.isInteractable == false || event.player.isSneaking)) return
             listener(event.player, event.item ?: return)

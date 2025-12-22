@@ -1,7 +1,7 @@
-package com.pulse.utilsLib.plugin.custom
+package com.pulse.utilsLib.plugins.bukkit.custom
 
-import com.pulse.utilsLib.plugin.ListenerSetup
-import com.pulse.utilsLib.plugin.bukkit.isUnenchantable
+import com.pulse.utilsLib.plugins.bukkit.ListenerSetup
+import com.pulse.utilsLib.plugins.bukkit.utils.isUnenchantable
 import org.bukkit.event.EventHandler
 import org.bukkit.event.enchantment.PrepareItemEnchantEvent
 import org.bukkit.event.inventory.PrepareAnvilEvent
