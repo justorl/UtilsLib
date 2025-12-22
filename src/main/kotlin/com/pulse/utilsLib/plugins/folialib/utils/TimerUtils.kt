@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.plugin.folialib
+package com.pulse.utilsLib.plugins.folialib.utils
 
-import com.pulse.utilsLib.plugin.Instance.foliaLib
+import com.pulse.utilsLib.plugins.bukkit.Instance.foliaLib
 import com.tcoded.folialib.wrapper.task.WrappedTask
 
 fun runLater(delay: Long, task: () -> Unit) = foliaLib.scheduler.runLater(task, delay)

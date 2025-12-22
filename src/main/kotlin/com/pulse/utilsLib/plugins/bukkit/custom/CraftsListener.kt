@@ -1,12 +1,12 @@
-package com.pulse.utilsLib.plugin.custom
+package com.pulse.utilsLib.plugins.bukkit.custom
 
-import com.pulse.utilsLib.plugin.ListenerSetup
-import com.pulse.utilsLib.plugin.bukkit.craftsLeft
-import com.pulse.utilsLib.plugin.bukkit.editCrafts
-import com.pulse.utilsLib.plugin.bukkit.isCraftable
-import com.pulse.utilsLib.plugin.bukkit.isMaxCraftable
-import com.pulse.utilsLib.plugin.bukkit.items.CustomItem
-import com.pulse.utilsLib.plugin.bukkit.items.CustomItemRegistry
+import com.pulse.utilsLib.plugins.bukkit.ListenerSetup
+import com.pulse.utilsLib.plugins.bukkit.utils.craftsLeft
+import com.pulse.utilsLib.plugins.bukkit.utils.editCrafts
+import com.pulse.utilsLib.plugins.bukkit.utils.isCraftable
+import com.pulse.utilsLib.plugins.bukkit.utils.isMaxCraftable
+import com.pulse.utilsLib.plugins.bukkit.items.CustomItem
+import com.pulse.utilsLib.plugins.bukkit.items.CustomItemRegistry
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

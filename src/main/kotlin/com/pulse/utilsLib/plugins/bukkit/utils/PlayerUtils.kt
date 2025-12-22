@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.plugin.bukkit
+package com.pulse.utilsLib.plugins.bukkit.utils
 
-import com.pulse.utilsLib.plugin.adventure.audience
+import com.pulse.utilsLib.plugins.adventure.utils.audience
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit

@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.plugin
+package com.pulse.utilsLib.plugins.bukkit
 
 import com.tcoded.folialib.FoliaLib
 import net.megavex.scoreboardlibrary.api.ScoreboardLibrary
