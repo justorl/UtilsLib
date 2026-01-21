@@ -41,11 +41,11 @@ dependencies {
 }
 ```
 
-Relocate the package if needed:
+Relocate the package if needed (recommended):
 
 ```kts
 tasks.shadowJar {
-    relocate("com.pulse.utilsLib", "your.package")
+    relocate("com.pulse.utilslib", "your.package")
 }
 ```
 
@@ -72,11 +72,12 @@ Add the dependency:
 </dependency>
 ```
 
-Relocate the package if needed:
+Relocate the package if needed (recommended):
 
 ```xml
+
 <relocation>
-    <pattern>com.pulse.utilsLib</pattern>
+    <pattern>com.pulse.utilslib</pattern>
     <shadedPattern>your.package</shadedPattern>
 </relocation>
 ```

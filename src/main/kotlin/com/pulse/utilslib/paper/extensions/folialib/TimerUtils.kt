@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.paper.extensions.folialib
+package com.pulse.utilslib.paper.extensions.folialib
 
 import com.pulse.utilslib.paper.plugin.PluginContext.foliaLib
 import com.tcoded.folialib.wrapper.task.WrappedTask

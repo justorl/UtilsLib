@@ -28,8 +28,8 @@ kotlin { jvmToolchain(targetJavaVersion) }
 
 tasks {
     shadowJar {
-        relocate("nonapi.io.github.classgraph", "${project.group}.utilsLib.shadow.classgraph.nonapi")
-        relocate("io.github.classgraph", "${project.group}.utilsLib.shadow.classgraph")
+        relocate("nonapi.io.github.classgraph", "${project.group}.utilslib.shadow.classgraph.nonapi")
+        relocate("io.github.classgraph", "${project.group}.utilslib.shadow.classgraph")
     }
 
     build {
