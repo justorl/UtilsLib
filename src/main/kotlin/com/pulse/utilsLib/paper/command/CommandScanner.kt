@@ -1,6 +1,7 @@
 package com.pulse.utilsLib.paper.command
 
 import com.pulse.utilsLib.paper.PaperClassScanner
+import com.pulse.utilsLib.paper.command.auto.AutoCommand
 import com.pulse.utilsLib.paper.plugin.PaperPlugin
 
 class CommandScanner(

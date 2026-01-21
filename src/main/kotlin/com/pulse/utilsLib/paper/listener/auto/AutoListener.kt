@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.paper.listener
+package com.pulse.utilsLib.paper.listener.auto
 
 import com.pulse.utilsLib.paper.plugin.PluginContext
 import org.bukkit.Bukkit

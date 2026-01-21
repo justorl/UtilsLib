@@ -12,9 +12,10 @@ abstract class PaperClassScanner<T: Any>(
 ) {
     abstract val name: String
 
-    protected abstract fun handle(instance: T): Boolean
     protected val verbose = PluginContext.plugin.verboseOutput
     protected val id = plugin.id
+
+    protected abstract fun handle(instance: T): Boolean
 
     fun load(pkg: String? = null) {
         val scanPkg = pkg ?: plugin::class.java.`package`.name

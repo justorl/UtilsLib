@@ -24,27 +24,27 @@ abstract class PaperPlugin(
         PluginContext.plugin = this
 
         if (hasCommandApi()) {
-            verboseLog("CommandAPI found (load)")
+            verboseLog("Initializing CommandAPI step 1/2")
             CommandAPI.onLoad(
                 CommandAPIPaperConfig(this)
                     .setNamespace(id)
                     .verboseOutput(verboseOutput)
             )
-        }
+        } else
 
         load()
     }
 
     override fun onEnable() {
         if (hasCommandApi()) {
-            verboseLog("CommandAPI found")
+            verboseLog("Initializing CommandAPI step 2/2")
 
             CommandAPI.onEnable()
 
         } else verboseLog("CommandAPI not found")
 
         if (hasFoliaLib()) {
-            verboseLog("FoliaLib found")
+            verboseLog("Initializing FoliaLib step 1/1")
 
             PluginContext.foliaLib =
                 FoliaLib(this)
@@ -52,20 +52,20 @@ abstract class PaperPlugin(
         } else verboseLog("FoliaLib not found")
 
         if (hasScoreboardLib()) {
-            verboseLog("ScoreboardLib found")
+            verboseLog("Initializing ScoreboardLibrary step 1/1")
 
             PluginContext.scoreboardLib =
                 ScoreboardLibrary.loadScoreboardLibrary(this)
 
         } else verboseLog("ScoreboardLib not found")
 
-        verboseLog("Loading listeners")
+        verboseLog("Loading auto listeners..")
         ListenerScanner(this).apply {
             load("com.pulse.utilsLib.plugin.bukkit.custom")
             load()
         }
 
-        verboseLog("Loading commands")
+        verboseLog("Loading auto commands..")
         CommandScanner(this).load()
 
         enable()

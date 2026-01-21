@@ -6,7 +6,7 @@ import com.pulse.utilsLib.paper.extensions.isCraftable
 import com.pulse.utilsLib.paper.extensions.isMaxCraftable
 import com.pulse.utilsLib.paper.item.CustomItem
 import com.pulse.utilsLib.paper.item.ItemRegistry
-import com.pulse.utilsLib.paper.listener.AutoListener
+import com.pulse.utilsLib.paper.listener.auto.AutoListener
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
