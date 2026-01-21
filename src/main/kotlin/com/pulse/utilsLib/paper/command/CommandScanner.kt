@@ -1,8 +1,8 @@
-package com.pulse.utilsLib.paper.command
+package com.pulse.utilslib.paper.command
 
-import com.pulse.utilsLib.paper.PaperClassScanner
-import com.pulse.utilsLib.paper.command.auto.AutoCommand
-import com.pulse.utilsLib.paper.plugin.PaperPlugin
+import com.pulse.utilslib.paper.PaperClassScanner
+import com.pulse.utilslib.paper.command.auto.AutoCommand
+import com.pulse.utilslib.paper.plugin.PaperPlugin
 
 class CommandScanner(
     plugin: PaperPlugin

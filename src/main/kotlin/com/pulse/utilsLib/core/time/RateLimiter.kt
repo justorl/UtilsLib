@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.time
+package com.pulse.utilslib.core.time
 
 import java.util.concurrent.ConcurrentHashMap
 

@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.time
+package com.pulse.utilslib.core.time
 
 enum class TimeUnits(
     val ru: String,

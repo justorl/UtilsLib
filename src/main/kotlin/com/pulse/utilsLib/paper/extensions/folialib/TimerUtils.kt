@@ -1,6 +1,6 @@
 package com.pulse.utilsLib.paper.extensions.folialib
 
-import com.pulse.utilsLib.paper.plugin.PluginContext.foliaLib
+import com.pulse.utilslib.paper.plugin.PluginContext.foliaLib
 import com.tcoded.folialib.wrapper.task.WrappedTask
 
 fun runLater(delay: Long, task: () -> Unit): WrappedTask =

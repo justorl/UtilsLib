@@ -1,9 +1,9 @@
-package com.pulse.utilsLib.paper.listener
+package com.pulse.utilslib.paper.listener
 
-import com.pulse.utilsLib.paper.PaperClassScanner
-import com.pulse.utilsLib.paper.listener.auto.AutoListener
-import com.pulse.utilsLib.paper.plugin.PaperPlugin
-import com.pulse.utilsLib.paper.plugin.PluginContext.plugin
+import com.pulse.utilslib.paper.PaperClassScanner
+import com.pulse.utilslib.paper.listener.auto.AutoListener
+import com.pulse.utilslib.paper.plugin.PaperPlugin
+import com.pulse.utilslib.paper.plugin.PluginContext.plugin
 import org.bukkit.Bukkit
 
 class ListenerScanner(

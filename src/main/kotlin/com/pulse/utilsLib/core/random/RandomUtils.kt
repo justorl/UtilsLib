@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.random
+package com.pulse.utilslib.core.random
 
 import kotlin.random.Random
 

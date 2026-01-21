@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.paper.item
+package com.pulse.utilslib.paper.item
 
-import com.pulse.utilsLib.paper.plugin.PluginContext
+import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player

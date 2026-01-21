@@ -1,12 +1,12 @@
-package com.pulse.utilsLib.paper.listener.builtin
+package com.pulse.utilslib.paper.listener.builtin
 
-import com.pulse.utilsLib.paper.extensions.craftsLeft
-import com.pulse.utilsLib.paper.extensions.editCrafts
-import com.pulse.utilsLib.paper.extensions.isCraftable
-import com.pulse.utilsLib.paper.extensions.isMaxCraftable
-import com.pulse.utilsLib.paper.item.CustomItem
-import com.pulse.utilsLib.paper.item.ItemRegistry
-import com.pulse.utilsLib.paper.listener.auto.AutoListener
+import com.pulse.utilslib.paper.extensions.craftsLeft
+import com.pulse.utilslib.paper.extensions.editCrafts
+import com.pulse.utilslib.paper.extensions.isCraftable
+import com.pulse.utilslib.paper.extensions.isMaxCraftable
+import com.pulse.utilslib.paper.item.CustomItem
+import com.pulse.utilslib.paper.item.ItemRegistry
+import com.pulse.utilslib.paper.listener.auto.AutoListener
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

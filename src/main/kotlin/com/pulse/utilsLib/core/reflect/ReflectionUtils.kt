@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.reflect
+package com.pulse.utilslib.core.reflect
 
 fun classExists(name: String) = runCatching { Class.forName(name) }.isSuccess
 

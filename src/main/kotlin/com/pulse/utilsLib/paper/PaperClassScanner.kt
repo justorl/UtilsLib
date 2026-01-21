@@ -1,8 +1,8 @@
-package com.pulse.utilsLib.paper
+package com.pulse.utilslib.paper
 
-import com.pulse.utilsLib.paper.extensions.hasClassGraph
-import com.pulse.utilsLib.paper.plugin.PaperPlugin
-import com.pulse.utilsLib.paper.plugin.PluginContext
+import com.pulse.utilslib.paper.extensions.hasClassGraph
+import com.pulse.utilslib.paper.plugin.PaperPlugin
+import com.pulse.utilslib.paper.plugin.PluginContext
 import io.github.classgraph.ClassGraph
 import kotlin.reflect.KClass
 

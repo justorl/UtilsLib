@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.paper.plugin
+package com.pulse.utilslib.paper.plugin
 
 import com.tcoded.folialib.FoliaLib
 import net.megavex.scoreboardlibrary.api.ScoreboardLibrary

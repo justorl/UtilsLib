@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.paper.listener.auto
+package com.pulse.utilslib.paper.listener.auto
 
-import com.pulse.utilsLib.paper.plugin.PluginContext
+import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
 import org.bukkit.event.Listener
 

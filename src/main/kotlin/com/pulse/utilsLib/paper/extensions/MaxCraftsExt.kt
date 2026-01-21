@@ -1,6 +1,6 @@
-package com.pulse.utilsLib.paper.extensions
+package com.pulse.utilslib.paper.extensions
 
-import com.pulse.utilsLib.paper.plugin.PluginContext
+import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta

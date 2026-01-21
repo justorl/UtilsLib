@@ -1,10 +1,10 @@
-package com.pulse.utilsLib.paper.plugin
+package com.pulse.utilslib.paper.plugin
 
-import com.pulse.utilsLib.paper.command.CommandScanner
-import com.pulse.utilsLib.paper.extensions.hasCommandApi
-import com.pulse.utilsLib.paper.extensions.hasFoliaLib
-import com.pulse.utilsLib.paper.extensions.hasScoreboardLib
-import com.pulse.utilsLib.paper.listener.ListenerScanner
+import com.pulse.utilslib.paper.command.CommandScanner
+import com.pulse.utilslib.paper.extensions.hasCommandApi
+import com.pulse.utilslib.paper.extensions.hasFoliaLib
+import com.pulse.utilslib.paper.extensions.hasScoreboardLib
+import com.pulse.utilslib.paper.listener.ListenerScanner
 import com.tcoded.folialib.FoliaLib
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIPaperConfig

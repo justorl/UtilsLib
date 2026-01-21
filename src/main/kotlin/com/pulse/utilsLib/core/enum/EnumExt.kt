@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.enum
+package com.pulse.utilslib.core.enum
 
 import kotlin.enums.EnumEntries
 import kotlin.enums.enumEntries

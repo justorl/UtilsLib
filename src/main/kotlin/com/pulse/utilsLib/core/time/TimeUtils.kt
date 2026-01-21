@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.core.time
+package com.pulse.utilslib.core.time
 
 fun Long.duration(max: Int = 2, default: String = "0 сек", ru: Boolean = true): String {
     if (this <= 0) return default

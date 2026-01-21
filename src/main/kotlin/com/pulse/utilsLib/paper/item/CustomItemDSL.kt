@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.paper.item
+package com.pulse.utilslib.paper.item
 
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player

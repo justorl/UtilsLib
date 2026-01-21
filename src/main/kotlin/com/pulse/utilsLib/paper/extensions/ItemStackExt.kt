@@ -1,8 +1,6 @@
-package com.pulse.utilsLib.paper.extensions
+package com.pulse.utilslib.paper.extensions
 
-import com.pulse.utilsLib.paper.plugin.PluginContext
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -11,7 +9,6 @@ import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.Damageable
 import org.bukkit.inventory.meta.ItemMeta
-import org.bukkit.persistence.PersistentDataType
 import java.io.Closeable
 
 inline fun <reified T : ItemMeta> ItemStack.meta(block: T.() -> Unit): ItemStack {

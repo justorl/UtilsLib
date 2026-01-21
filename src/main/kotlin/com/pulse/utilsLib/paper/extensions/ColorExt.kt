@@ -1,4 +1,4 @@
-package com.pulse.utilsLib.paper.extensions
+package com.pulse.utilslib.paper.extensions
 
 import org.bukkit.Color
 
