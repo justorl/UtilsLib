@@ -9,13 +9,13 @@ A shared code library for my plugins. Feel free to use it in your projects! A wi
 
 Automatically register your event listeners without needing to manually register them in the main plugin class.
 
-### PluginSetup
+### PaperPlugin class
 
-Automatically handle plugin dependencies (currently supports FoliaLib, CommandAPI, and ScoreboardLib) and automatically register listeners.
+Automatically handle plugin dependencies (currently supports FoliaLib, CommandAPI, and ScoreboardLib) with verbose logging and automatically register listeners and variables.
 
-### CustomItem, CustomItemBuilder & CustomItemRegistry
+### CustomItem, CustomItemDSL & CustomItemRegistry
 
-Create custom items easily using a builder, with support for an even craft recipe.
+Create custom items easily using a dsl builder, with support for an even craft recipe.
 
 ### Utilities
 
