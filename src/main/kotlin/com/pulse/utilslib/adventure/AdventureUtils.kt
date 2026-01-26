@@ -54,5 +54,5 @@ fun Any?.cmp() = Component.text(this.toString())
 
 fun Collection<Audience>.audience() = Audience.audience(this)
 
-fun Title.title(title: Component, subtitle: Component, fadeIn: Long, stay: Long, fadeOut: Long): Title =
+fun createTitle(title: Component, subtitle: Component, fadeIn: Long, stay: Long, fadeOut: Long): Title =
     Title.title(title, subtitle, Title.Times.times(Duration.ofMillis(fadeIn), Duration.ofMillis(stay), Duration.ofMillis(fadeOut)))

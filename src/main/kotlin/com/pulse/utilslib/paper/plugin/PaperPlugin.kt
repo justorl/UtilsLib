@@ -61,12 +61,13 @@ abstract class PaperPlugin(
 
         verboseLog("Loading auto listeners..")
         ListenerScanner(this).apply {
-            load("com.pulse.utilsLib.plugin.bukkit.custom")
+            load("com.pulse.utilslib.plugin.bukkit.custom")
             load()
         }
 
         verboseLog("Loading auto commands..")
-        CommandScanner(this).load()
+        CommandScanner(this)
+            .load()
 
         enable()
     }

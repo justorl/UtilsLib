@@ -23,7 +23,11 @@ fun onItemUse(listener: (Player, ItemStack) -> Unit): Closeable {
         @EventHandler
         fun onPlayerInteract(event: PlayerInteractEvent) {
             if (event.action != Action.RIGHT_CLICK_AIR && event.action != Action.RIGHT_CLICK_BLOCK) return
-            if (event.action == Action.RIGHT_CLICK_BLOCK && !(event.clickedBlock?.type?.isInteractable == false || event.player.isSneaking)) return
+            if (event.action == Action.RIGHT_CLICK_BLOCK) {
+                val block = event.clickedBlock
+                if (block?.type?.isInteractable == true && !event.player.isSneaking) return
+            }
+            
             listener(event.player, event.item ?: return)
         }
     })
@@ -51,22 +55,32 @@ fun ItemStack.ignoreDurability(): ItemStack {
     }
 }
 
-fun Player.takeFromMainHand(amount: Int = 1) {
-    val stack = inventory.itemInMainHand
-    val taking = stack.amount - amount
-    if (taking <= 0) {
-        inventory.setItemInMainHand(ItemStack(Material.AIR))
+private fun Player.takeFromHand(
+    getItem: () -> ItemStack,
+    setItem: (ItemStack) -> Unit,
+    amount: Int
+) {
+    val stack = getItem()
+    val remaining = stack.amount - amount
+    if (remaining <= 0) {
+        setItem(ItemStack(Material.AIR))
     } else {
-        inventory.setItemInMainHand(stack.asQuantity(taking))
+        setItem(stack.asQuantity(remaining))
     }
 }
 
+fun Player.takeFromMainHand(amount: Int = 1) {
+    takeFromHand(
+        getItem = { inventory.itemInMainHand },
+        setItem = { inventory.setItemInMainHand(it) },
+        amount = amount
+    )
+}
+
 fun Player.takeFromOffHand(amount: Int = 1) {
-    val stack = inventory.itemInOffHand
-    val taking = stack.amount - amount
-    if (taking <= 0) {
-        inventory.setItemInOffHand(ItemStack(Material.AIR))
-    } else {
-        inventory.setItemInOffHand(stack.asQuantity(taking))
-    }
+    takeFromHand(
+        getItem = { inventory.itemInOffHand },
+        setItem = { inventory.setItemInOffHand(it) },
+        amount = amount
+    )
 }

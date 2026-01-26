@@ -1,12 +1,13 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-
 plugins {
     kotlin("jvm") version "2.3.0-Beta2"
     id("com.gradleup.shadow") version "8.3.0"
+    `maven-publish`
 }
 
 group = "com.pulse"
 version = "1.3.0"
+
+val targetJavaVersion = 21
 
 repositories {
     mavenCentral()
@@ -23,16 +24,41 @@ dependencies {
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
-val targetJavaVersion = 21
 kotlin { jvmToolchain(targetJavaVersion) }
 
 tasks {
     shadowJar {
         relocate("nonapi.io.github.classgraph", "${project.group}.utilslib.shadow.classgraph.nonapi")
         relocate("io.github.classgraph", "${project.group}.utilslib.shadow.classgraph")
+        archiveClassifier.set("")
     }
 
     build {
         dependsOn(shadowJar)
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            artifactId = "utilslib"
+            version = project.version.toString()
+            
+            artifact(tasks.shadowJar)
+            
+            pom {
+                name.set("UtilsLib")
+                description.set("A shared code library for Paper plugins")
+                url.set("https://github.com/justorl/UtilsLib")
+                
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+            }
+        }
     }
 }

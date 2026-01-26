@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.Recipe
 
 class CustomItemDSL(private val id: String) {
-    lateinit var defaultItem: ItemStack
+    var defaultItem: ItemStack? = null
     var recipe: ((NamespacedKey, ItemStack) -> Recipe)? = null
     private var onRightClick: ((Player) -> Unit)? = null
 
@@ -23,9 +23,11 @@ class CustomItemDSL(private val id: String) {
     }
 
     fun build(): CustomItem {
+        val item = defaultItem ?: throw IllegalStateException("defaultItem must be set before calling build()")
+        
         return CustomItem(
             id,
-            defaultItem,
+            item,
             recipe,
             onRightClick
         )
