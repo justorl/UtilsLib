@@ -1,6 +1,6 @@
 package com.pulse.utilslib.paper.extensions
 
-import com.pulse.utilslib.core.reflect.classExists
+import com.pulse.utilslib.core.extensions.classExists
 import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
