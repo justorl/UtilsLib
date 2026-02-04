@@ -1,4 +1,4 @@
-package com.pulse.utilslib.paper.extensions
+package com.pulse.utilslib.paper.extension
 
 import org.bukkit.Location
 import org.bukkit.Material

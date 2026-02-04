@@ -1,4 +1,4 @@
-package com.pulse.utilslib.adventure.extensions
+package com.pulse.utilslib.adventure.extension
 
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.key.Key

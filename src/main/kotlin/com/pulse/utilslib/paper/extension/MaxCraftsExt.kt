@@ -1,4 +1,4 @@
-package com.pulse.utilslib.paper.extensions
+package com.pulse.utilslib.paper.extension
 
 import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.NamespacedKey

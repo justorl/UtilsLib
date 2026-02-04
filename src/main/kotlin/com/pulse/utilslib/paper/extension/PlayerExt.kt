@@ -1,6 +1,6 @@
-package com.pulse.utilslib.paper.extensions
+package com.pulse.utilslib.paper.extension
 
-import com.pulse.utilslib.adventure.extensions.audience
+import com.pulse.utilslib.adventure.extension.audience
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit

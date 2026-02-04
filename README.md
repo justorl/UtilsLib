@@ -19,7 +19,7 @@ Create custom items easily using a dsl builder, with support for an even craft r
 
 ### Utilities
 
-Many helpful utility functions, such as items with limited crafting uses, easier adventure api builders, and many others
+Many helpful utility functions, such as easy unenchantable items, easier adventure api builders, async dsl chains and many others
 
 ## Shading
 
@@ -37,7 +37,7 @@ Add the dependency:
 
 ```kts
 dependencies {
-    implementation("com.github.justorl:UtilsLib:1.3.0")
+    implementation("com.github.justorl:UtilsLib:2.1.0")
 }
 ```
 
@@ -68,7 +68,7 @@ Add the dependency:
 <dependency>
   <groupId>com.github.justorl</groupId>
   <artifactId>UtilsLib</artifactId>
-  <version>1.3.0</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 

@@ -1,7 +1,7 @@
 package com.pulse.utilslib.paper.listener.builtin
 
 import com.pulse.utilslib.paper.listener.auto.AutoListener
-import com.pulse.utilslib.paper.extensions.isUnenchantable
+import com.pulse.utilslib.paper.extension.isUnenchantable
 import org.bukkit.event.EventHandler
 import org.bukkit.event.enchantment.PrepareItemEnchantEvent
 import org.bukkit.event.inventory.PrepareAnvilEvent

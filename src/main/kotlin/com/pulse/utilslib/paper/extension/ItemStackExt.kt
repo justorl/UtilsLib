@@ -1,4 +1,4 @@
-package com.pulse.utilslib.paper.extensions
+package com.pulse.utilslib.paper.extension
 
 import org.bukkit.Material
 import org.bukkit.entity.Player

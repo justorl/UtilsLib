@@ -1,7 +1,7 @@
 package com.pulse.utilslib.paper.item
 
 import com.pulse.utilslib.paper.plugin.PluginContext
-import com.pulse.utilslib.paper.extensions.onItemUse
+import com.pulse.utilslib.paper.extension.onItemUse
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import kotlin.collections.find

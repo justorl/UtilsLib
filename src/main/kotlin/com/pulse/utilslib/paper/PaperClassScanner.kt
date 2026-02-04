@@ -1,6 +1,6 @@
 package com.pulse.utilslib.paper
 
-import com.pulse.utilslib.paper.extensions.hasClassGraph
+import com.pulse.utilslib.paper.extension.hasClassGraph
 import com.pulse.utilslib.paper.plugin.PaperPlugin
 import com.pulse.utilslib.paper.plugin.PluginContext
 import io.github.classgraph.ClassGraph
