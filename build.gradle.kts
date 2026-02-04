@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "1.3.0"
+version = "2.0.1"
 
 val targetJavaVersion = 21
 
@@ -36,6 +36,10 @@ tasks {
     build {
         dependsOn(shadowJar)
     }
+
+    jar {
+        enabled = false
+    }
 }
 
 publishing {
@@ -44,14 +48,16 @@ publishing {
             groupId = project.group.toString()
             artifactId = "utilslib"
             version = project.version.toString()
-            
-            artifact(tasks.shadowJar)
-            
+
+            artifact(tasks.shadowJar.get()) {
+                builtBy(tasks.shadowJar)
+            }
+
             pom {
                 name.set("UtilsLib")
                 description.set("A shared code library for Paper plugins")
                 url.set("https://github.com/justorl/UtilsLib")
-                
+
                 licenses {
                     license {
                         name.set("MIT License")

@@ -1,4 +1,4 @@
-package com.pulse.utilslib.adventure
+package com.pulse.utilslib.adventure.extensions
 
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.key.Key
@@ -10,6 +10,7 @@ import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.title.Title
 import java.time.Duration
 
+// todo move this method?
 fun org.bukkit.Sound.sound(
     source: Sound.Source = Sound.Source.MASTER,
     volume: Float = 1f,
