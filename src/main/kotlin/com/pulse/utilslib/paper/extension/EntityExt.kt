@@ -9,6 +9,7 @@ import org.bukkit.Material
 import org.bukkit.attribute.Attributable
 import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Damageable
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
@@ -16,7 +17,7 @@ import org.bukkit.inventory.meta.SkullMeta
 val allPlayers get() = Bukkit.getOnlinePlayers()
 val allAudiences get() = allPlayers.audience()
 
-fun Player.pull(target: Location, strength: Double = 1.0) {
+fun Entity.pull(target: Location, strength: Double = 1.0) {
     val from = this.location.toVector()
     val to = target.toVector()
 
@@ -41,3 +42,9 @@ val Attributable.maxHP: Double
 
 fun Player.showTitle(title: Component, subtitle: Component, fadeIn: Int, stay: Int, fadeOut: Int) =
     showTitle(Title.title(title, subtitle, fadeIn, stay, fadeOut))
+
+fun Player.getHitboxHeight(): Float {
+    val playerHitboxHeight = 1.8f
+    val playerScaleAttribute = getAttribute(Attribute.SCALE)?.value?.toFloat() ?: 1.0f
+    return playerHitboxHeight*playerScaleAttribute
+}
