@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.1.0"
+version = "2.2.0"
 
 val targetJavaVersion = 21
 
@@ -21,6 +21,7 @@ dependencies {
     compileOnly("net.megavex:scoreboard-library-api:2.4.3")
     compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
+    compileOnly("net.luckperms:api:5.5")
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
