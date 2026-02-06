@@ -74,10 +74,10 @@ enum class Serializers(val serializer: ComponentSerializer<Component, *, String>
     operator fun invoke(): ComponentSerializer<Component, *, String> = serializer
 }
 
-inline fun Component.serialize(
+fun Component.serialize(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
 ): String = serializer.serialize(this)
 
-inline fun String.deserialize(
+fun String.deserialize(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
 ): Component = serializer.deserialize(this)

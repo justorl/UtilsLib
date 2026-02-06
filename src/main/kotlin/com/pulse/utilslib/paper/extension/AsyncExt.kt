@@ -3,16 +3,17 @@ package com.pulse.utilslib.paper.extension
 import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
 
-class AsyncChain(
-    private val asyncBlock: () -> Unit
+class AsyncChain<T>(
+    private val asyncBlock: () -> T
 ) {
-    infix fun thenSync(syncBlock: () -> Unit) {
+    infix fun thenSync(syncBlock: (T) -> Unit) {
         Bukkit.getScheduler().runTaskAsynchronously(PluginContext.plugin, Runnable {
-            asyncBlock()
-            Bukkit.getScheduler().runTask(PluginContext.plugin, syncBlock)
+            val result = asyncBlock()
+            Bukkit.getScheduler().runTask(PluginContext.plugin, Runnable {
+                syncBlock(result)
+            })
         })
     }
 }
 
-fun async(block: () -> Unit): AsyncChain =
-    AsyncChain(block)
+fun <T> async(block: () -> T): AsyncChain<T> = AsyncChain(block)

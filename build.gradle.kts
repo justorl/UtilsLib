@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.2.1"
+version = "2.2.2"
 
 val targetJavaVersion = 21
 
