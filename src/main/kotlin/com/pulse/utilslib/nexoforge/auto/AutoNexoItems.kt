@@ -10,6 +10,6 @@ abstract class AutoNexoItems {
     abstract val items: List<NexoForgeItem>
 
     fun register() {
-        PluginContext.nexoForge.registerItems(items, "$namespace:$fileName.yml")
+        PluginContext.nexoForge.registerItems(items, "$namespace/$fileName.yml")
     }
 }
