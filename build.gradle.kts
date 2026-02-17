@@ -7,8 +7,6 @@ plugins {
 group = "com.pulse"
 version = "2.2.4"
 
-val targetJavaVersion = 21
-
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") { name = "papermc-repo" }
@@ -23,16 +21,18 @@ dependencies {
     compileOnly("com.tcoded:FoliaLib:0.5.1")
     compileOnly("net.luckperms:api:5.5")
     compileOnly("com.github.justorl:NexoForge:0.1.0")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
-kotlin { jvmToolchain(targetJavaVersion) }
+kotlin { jvmToolchain(21) }
 
 tasks {
     shadowJar {
         relocate("nonapi.io.github.classgraph", "${project.group}.utilslib.shadow.classgraph.nonapi")
         relocate("io.github.classgraph", "${project.group}.utilslib.shadow.classgraph")
         archiveClassifier.set("")
+        exclude("LICENSE-ClassGraph.txt")
     }
 
     build {
