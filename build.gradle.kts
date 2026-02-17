@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.2.3"
+version = "2.2.4"
 
 val targetJavaVersion = 21
 
@@ -23,7 +23,6 @@ dependencies {
     compileOnly("com.tcoded:FoliaLib:0.5.1")
     compileOnly("net.luckperms:api:5.5")
     compileOnly("com.github.justorl:NexoForge:0.1.0")
-    implementation(kotlin("reflect"))
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
