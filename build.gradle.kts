@@ -1,11 +1,11 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.3.0"
     id("com.gradleup.shadow") version "8.3.0"
     `maven-publish`
 }
 
 group = "com.pulse"
-version = "2.2.2"
+version = "2.2.3"
 
 val targetJavaVersion = 21
 
@@ -13,15 +13,17 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") { name = "papermc-repo" }
     maven("https://repo.tcoded.com/releases") { name = "tcoded" }
+    maven("https://jitpack.io")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("net.megavex:scoreboard-library-api:2.4.3")
     compileOnly("dev.jorel:commandapi-paper-shade:11.1.0")
     compileOnly("com.tcoded:FoliaLib:0.5.1")
     compileOnly("net.luckperms:api:5.5")
+    compileOnly("com.github.justorl:NexoForge:0.1.0")
+    implementation(kotlin("reflect"))
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 

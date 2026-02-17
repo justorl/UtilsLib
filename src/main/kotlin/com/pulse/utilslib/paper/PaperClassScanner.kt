@@ -37,10 +37,13 @@ abstract class PaperClassScanner<T: Any>(
 
                 classes.forEach { classInfo ->
                     try {
-                        val instance = classInfo
-                            .loadClass(baseClass.java)
-                            .getDeclaredConstructor()
-                            .newInstance()
+                        val clazz = classInfo.loadClass(baseClass.java)
+
+                        val instance: T = if (clazz.kotlin.objectInstance != null) {
+                            clazz.kotlin.objectInstance as T
+                        } else {
+                            clazz.getDeclaredConstructor().newInstance() as T
+                        }
 
                         if (handle(instance)) {
                             count++

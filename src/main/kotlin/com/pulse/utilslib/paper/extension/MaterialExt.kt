@@ -51,7 +51,8 @@ fun Block.getShift(face: BlockFace): Location {
     return this.location.add(face.direction)
 }
 
-fun Location.getInRadius(radius: Int): MutableList<Location> = getInRadius(radius, radius, radius)
+fun Location.getInRadius(radius: Int): MutableList<Location> =
+    getInRadius(radius, radius, radius)
 
 fun Location.getInRadius(radiusX: Int, radiusY: Int, radiusZ: Int): MutableList<Location> {
     val world = world ?: return mutableListOf()
@@ -72,7 +73,8 @@ fun Location.getInRadius(radiusX: Int, radiusY: Int, radiusZ: Int): MutableList<
     return locs
 }
 
-fun Block.getBlocksNearby(radius: Int, type: Material? = null): List<Block> = location.getBlocksNearby(radius, type)
+fun Block.getBlocksNearby(radius: Int, type: Material? = null): List<Block> =
+    location.getBlocksNearby(radius, type)
 
 fun Location.getBlocksNearby(radius: Int, type: Material? = null): List<Block> {
     val world = world ?: return emptyList()

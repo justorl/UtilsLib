@@ -4,6 +4,7 @@ import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.sound.Sound
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.ComponentLike
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
@@ -81,3 +82,13 @@ fun Component.serialize(
 fun String.deserialize(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
 ): Component = serializer.deserialize(this)
+
+fun Component.replaceLiteral(
+    literal: String,
+    replace: String
+): Component = replaceText { builder -> builder.matchLiteral(literal).replacement(replace) }
+
+fun Component.replaceLiteral(
+    literal: String,
+    replace: ComponentLike
+): Component = replaceText { builder -> builder.matchLiteral(literal).replacement(replace) }

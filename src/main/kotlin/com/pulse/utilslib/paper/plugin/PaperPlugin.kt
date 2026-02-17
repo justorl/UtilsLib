@@ -1,8 +1,12 @@
 package com.pulse.utilslib.paper.plugin
 
+import com.pulse.nexoforge.NexoForge
+import com.pulse.utilslib.nexoforge.auto.NexoItemsScanner
 import com.pulse.utilslib.paper.command.CommandScanner
 import com.pulse.utilslib.paper.extension.hasCommandApi
 import com.pulse.utilslib.paper.extension.hasFoliaLib
+import com.pulse.utilslib.paper.extension.hasLuckPermsApi
+import com.pulse.utilslib.paper.extension.hasNexoForge
 import com.pulse.utilslib.paper.extension.hasScoreboardLib
 import com.pulse.utilslib.paper.listener.ListenerScanner
 import com.tcoded.folialib.FoliaLib
@@ -30,7 +34,7 @@ abstract class PaperPlugin(
                     .setNamespace(id)
                     .verboseOutput(verboseOutput)
             )
-        } else
+        }
 
         load()
     }
@@ -59,14 +63,29 @@ abstract class PaperPlugin(
 
         } else verboseLog("ScoreboardLib not found")
 
+        if (hasNexoForge()) {
+            verboseLog("Initializing NexoForge step 1/2")
+
+            PluginContext.nexoForge =
+                NexoForge(this)
+
+            verboseLog("Initializing NexoForge step 2/2")
+            PluginContext.nexoForge.onEnable()
+
+        } else verboseLog("NexoForge not found")
+
         verboseLog("Loading auto listeners..")
         ListenerScanner(this).apply {
-            load("com.pulse.utilslib.plugin.bukkit.custom")
+            load("com.pulse.utilslib.paper.listener.builtin")
             load()
         }
 
         verboseLog("Loading auto commands..")
         CommandScanner(this)
+            .load()
+
+        verboseLog("Loading auto nexo items..")
+        NexoItemsScanner(this)
             .load()
 
         enable()
@@ -75,6 +94,7 @@ abstract class PaperPlugin(
     override fun onDisable() {
         if (hasCommandApi()) CommandAPI.onDisable()
         if (hasScoreboardLib()) PluginContext.scoreboardLib.close()
+        if (hasNexoForge()) PluginContext.nexoForge.onDisable()
 
         disable()
     }

@@ -17,7 +17,7 @@ fun reloadYaml(plugin: Plugin, file: File, name: String): YamlConfiguration {
 
     defaultYaml.getKeys(true)
         .filterNot { yaml.contains(it) }
-        .forEach { yaml.set(it, defaultYaml.get(it)) }
+        .forEach { key -> yaml.set(key, defaultYaml.get(key)) }
 
     yaml.save(file)
     return yaml
