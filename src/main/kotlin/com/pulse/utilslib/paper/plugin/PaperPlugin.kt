@@ -1,7 +1,7 @@
 package com.pulse.utilslib.paper.plugin
 
 import com.pulse.nexoforge.NexoForge
-import com.pulse.utilslib.nexoforge.auto.NexoItemsScanner
+import com.pulse.utilslib.nexoforge.NexoItemsScanner
 import com.pulse.utilslib.paper.command.CommandScanner
 import com.pulse.utilslib.paper.extension.hasCommandApi
 import com.pulse.utilslib.paper.extension.hasFoliaLib

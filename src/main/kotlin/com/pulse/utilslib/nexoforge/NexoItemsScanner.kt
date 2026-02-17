@@ -1,5 +1,6 @@
-package com.pulse.utilslib.nexoforge.auto
+package com.pulse.utilslib.nexoforge
 
+import com.pulse.utilslib.nexoforge.auto.AutoNexoItems
 import com.pulse.utilslib.paper.PaperClassScanner
 import com.pulse.utilslib.paper.plugin.PaperPlugin
 
