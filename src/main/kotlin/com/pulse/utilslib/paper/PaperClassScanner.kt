@@ -39,9 +39,11 @@ abstract class PaperClassScanner<T: Any>(
                     try {
                         val clazz = classInfo.loadClass(baseClass.java)
 
-                        val instance: T = if (clazz.kotlin.objectInstance != null) {
-                            clazz.kotlin.objectInstance as T
-                        } else {
+                        val instance: T = try {
+                            val instanceField = clazz.getField("INSTANCE")
+                            @Suppress("UNCHECKED_CAST")
+                            instanceField.get(null) as T
+                        } catch (e: NoSuchFieldException) {
                             clazz.getDeclaredConstructor().newInstance() as T
                         }
 
