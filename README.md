@@ -1,5 +1,5 @@
 # UtilsLib
-A shared code library for my plugins. Feel free to use it in your projects! A wiki isn't available yet, but here's a quick overview
+A shared code library for my projects. Feel free to use it anywhere you want. A wiki isn't available yet, but here's a quick overview
 
 ---
 
