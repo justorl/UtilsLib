@@ -37,7 +37,7 @@ Add the dependency:
 
 ```kts
 dependencies {
-    implementation("com.github.justorl:UtilsLib:2.2.5")
+    implementation("com.github.justorl:UtilsLib:2.3.0")
 }
 ```
 
@@ -68,7 +68,7 @@ Add the dependency:
 <dependency>
   <groupId>com.github.justorl</groupId>
   <artifactId>UtilsLib</artifactId>
-  <version>2.2.5</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 

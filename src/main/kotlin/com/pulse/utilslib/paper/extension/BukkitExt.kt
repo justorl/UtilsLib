@@ -1,11 +1,32 @@
 package com.pulse.utilslib.paper.extension
 
-import com.pulse.utilslib.core.extension.classExists
 import com.pulse.utilslib.paper.plugin.PluginContext
 import org.bukkit.Bukkit
+import org.bukkit.NamespacedKey
+import org.bukkit.Server
 import org.bukkit.event.HandlerList
 import org.bukkit.event.Listener
+import org.bukkit.plugin.Plugin
+import org.bukkit.plugin.PluginManager
 import java.io.Closeable
+
+fun Server.plugin(
+    unit: PluginManager.() -> Unit
+) = pluginManager.also { with(pluginManager, unit) }
+
+fun PluginManager.events(
+    plugin: Plugin,
+    vararg listeners: Listener
+) { listeners.forEach { registerEvents(it, plugin) } }
+
+fun Server.events(
+    plugin: Plugin,
+    vararg listeners: Listener
+) { pluginManager.events(plugin, *listeners) }
+
+fun Plugin.events(
+    vararg listeners: Listener
+) { server.events(this, *listeners) }
 
 fun addEventListener(listener: Listener): Closeable {
     Bukkit.getPluginManager().registerEvents(listener, PluginContext.plugin)
@@ -14,25 +35,11 @@ fun addEventListener(listener: Listener): Closeable {
     }
 }
 
-fun isPluginEnabled(name: String): Boolean = Bukkit.getPluginManager().getPlugin(name) != null
+fun String.nKey() =
+    NamespacedKey.fromString(this)!!
 
-fun hasFoliaLib(): Boolean =
-    classExists("com.tcoded.folialib.FoliaLib")
+fun String.nKey(namespace: String) =
+    NamespacedKey.fromString("$namespace:$this")!!
 
-fun hasCommandApi(): Boolean =
-    classExists("dev.jorel.commandapi.CommandAPI")
-
-fun hasScoreboardLib(): Boolean =
-    classExists("net.megavex.scoreboardlibrary.api.ScoreboardLibrary")
-
-fun hasLuckPermsApi(): Boolean =
-    classExists("net.luckperms.api.LuckPermsProvider")
-
-fun hasClassGraph(): Boolean =
-    classExists("io.github.classgraph.ClassGraph")
-
-fun hasNexoForge(): Boolean =
-    classExists("com.pulse.nexoforge.NexoForge")
-
-fun isFolia() : Boolean =
-    classExists("io.papermc.paper.threadedregions.scheduler.RegionScheduler")
+fun isPluginEnabled(name: String): Boolean =
+    Bukkit.getPluginManager().getPlugin(name) != null

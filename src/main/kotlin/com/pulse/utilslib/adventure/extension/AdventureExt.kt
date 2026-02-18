@@ -8,11 +8,6 @@ import net.kyori.adventure.text.ComponentLike
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
-import net.kyori.adventure.text.serializer.ComponentSerializer
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer
-import net.kyori.adventure.text.serializer.json.JSONComponentSerializer
-import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
-import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import net.kyori.adventure.title.Title
 import java.time.Duration
 
@@ -63,25 +58,6 @@ fun Collection<Audience>.audience() = Audience.audience(this)
 
 fun createTitle(title: Component, subtitle: Component, fadeIn: Long, stay: Long, fadeOut: Long): Title =
     Title.title(title, subtitle, Title.Times.times(Duration.ofMillis(fadeIn), Duration.ofMillis(stay), Duration.ofMillis(fadeOut)))
-
-// serializers & extensions for them were made by alexthegoood in his paper-language-kotlin
-enum class Serializers(val serializer: ComponentSerializer<Component, *, String>) {
-    PLAIN(PlainTextComponentSerializer.plainText()),
-    LEGACY(LegacyComponentSerializer.legacyAmpersand()),
-    MINI(MiniMessage.miniMessage()),
-    JSON(JSONComponentSerializer.json()),
-    GSON(GsonComponentSerializer.gson());
-
-    operator fun invoke(): ComponentSerializer<Component, *, String> = serializer
-}
-
-fun Component.serialize(
-    serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): String = serializer.serialize(this)
-
-fun String.deserialize(
-    serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): Component = serializer.deserialize(this)
 
 fun Component.replaceLiteral(
     literal: String,

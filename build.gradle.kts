@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.2.5"
+version = "2.3.0"
 
 repositories {
     mavenCentral()

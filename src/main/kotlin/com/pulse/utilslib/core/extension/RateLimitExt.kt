@@ -6,12 +6,14 @@ val rateLimits = ConcurrentHashMap<String, Long>()
 
 fun rateLimit(key: String, duration: Long): Boolean {
     val now = System.currentTimeMillis()
+    val newEnd = now + duration
 
-    rateLimits.entries.removeIf { it.value < now }
+    val old = rateLimits.putIfAbsent(key, newEnd)
+    if (old == null) return true
 
-    val endTime = rateLimits[key]
-    if (endTime != null && now < endTime) return true
+    if (now >= old) {
+        return rateLimits.replace(key, old, newEnd)
+    }
 
-    rateLimits[key] = now + duration
     return false
 }
