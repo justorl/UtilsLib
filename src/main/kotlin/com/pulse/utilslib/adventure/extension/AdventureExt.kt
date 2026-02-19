@@ -1,5 +1,6 @@
 package com.pulse.utilslib.adventure.extension
 
+import com.pulse.utilslib.adventure.Serializers
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.sound.Sound
@@ -8,6 +9,7 @@ import net.kyori.adventure.text.ComponentLike
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+import net.kyori.adventure.text.serializer.ComponentSerializer
 import net.kyori.adventure.title.Title
 import java.time.Duration
 
@@ -52,12 +54,28 @@ fun String.cmp(color: Boolean = false) =
     else
         Component.text(this)
 
-fun Any?.cmp() = Component.text(this.toString())
+fun Any?.cmp() =
+    Component.text(this.toString())
 
-fun Collection<Audience>.audience() = Audience.audience(this)
+fun Collection<Audience>.audience() =
+    Audience.audience(this)
 
-fun createTitle(title: Component, subtitle: Component, fadeIn: Long, stay: Long, fadeOut: Long): Title =
-    Title.title(title, subtitle, Title.Times.times(Duration.ofMillis(fadeIn), Duration.ofMillis(stay), Duration.ofMillis(fadeOut)))
+fun createTitle(
+    title: Component,
+    subtitle: Component,
+    fadeIn: Long,
+    stay: Long, 
+    fadeOut: Long
+): Title =
+    Title.title(
+        title,
+        subtitle,
+        Title.Times.times(
+            Duration.ofMillis(fadeIn),
+            Duration.ofMillis(stay),
+            Duration.ofMillis(fadeOut)
+        )
+    )
 
 fun Component.replaceLiteral(
     literal: String,
@@ -68,3 +86,6 @@ fun Component.replaceLiteral(
     literal: String,
     replace: ComponentLike
 ): Component = replaceText { builder -> builder.matchLiteral(literal).replacement(replace) }
+
+fun Component.plain(): String =
+    serialize(Serializers.PLAIN.serializer)

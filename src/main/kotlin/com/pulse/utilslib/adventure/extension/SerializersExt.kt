@@ -6,16 +6,16 @@ import net.kyori.adventure.text.serializer.ComponentSerializer
 
 fun Component.serialize(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): (Component) -> String = serializer::serialize
+): String = serializer.serialize(this)
 
 fun Component.serializeOrNull(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): (Component?) -> String? = serializer::serializeOrNull
+): String? = serializer.serializeOrNull(this)
 
 fun String.deserialize(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): (String) -> Component = serializer::deserialize
+): Component = serializer.deserialize(this)
 
 fun String.deserializeOrNull(
     serializer: ComponentSerializer<Component, *, String> = Serializers.PLAIN()
-): (String?) -> Component? = serializer::deserializeOrNull
+): Component? = serializer.deserializeOrNull(this)

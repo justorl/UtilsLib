@@ -1,16 +1,16 @@
 package com.pulse.utilslib.folialib.extension
 
-import com.pulse.utilslib.paper.plugin.PluginContext.foliaLib
+import com.pulse.utilslib.paper.plugin.PluginContext
 import com.tcoded.folialib.wrapper.task.WrappedTask
 
-fun runLater(delay: Long, task: () -> Unit): WrappedTask =
-    foliaLib.scheduler.runLater(task, delay)
+fun runLaterFolia(delay: Long, task: () -> Unit): WrappedTask =
+    PluginContext.foliaLib.scheduler.runLater(task, delay)
 
-fun runLaterAsync(delay: Long, task: () -> Unit): WrappedTask =
-    foliaLib.scheduler.runLaterAsync(task, delay)
+fun runLaterAsyncFolia(delay: Long, task: () -> Unit): WrappedTask =
+    PluginContext.foliaLib.scheduler.runLaterAsync(task, delay)
 
-fun runTimer(delay: Long, delay2: Long, task: () -> Unit): WrappedTask =
-    foliaLib.scheduler.runTimer(task, delay, delay2)
+fun runTimerFolia(delay: Long, delay2: Long, task: () -> Unit): WrappedTask =
+    PluginContext.foliaLib.scheduler.runTimer(task, delay, delay2)
 
-fun runTimerAsync(delay: Long, delay2: Long, task: () -> Unit): WrappedTask =
-    foliaLib.scheduler.runTimerAsync(task, delay, delay2)
+fun runTimerAsyncFolia(delay: Long, delay2: Long, task: () -> Unit): WrappedTask =
+    PluginContext.foliaLib.scheduler.runTimerAsync(task, delay, delay2)
