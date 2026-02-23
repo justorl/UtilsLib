@@ -14,7 +14,7 @@ abstract class AutoNexoItems {
             items,
             "$namespace/$fileName.yml",
             false,
-            "$namespace/$fileName.yml"
+            "$fileName.yml"
         )
     }
 }
