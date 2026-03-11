@@ -32,6 +32,7 @@ abstract class PaperClassScanner<T: Any>(
             .enableAllInfo()
             .acceptPackages(scanPkg)
             .enableExternalClasses()
+            .addClassLoader(plugin::class.java.classLoader)
             .scan().use { scanResult ->
                 val classes = scanResult.getSubclasses(baseClass.java)
 
