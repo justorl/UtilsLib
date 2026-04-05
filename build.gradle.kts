@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.pulse"
-version = "2.3.9"
+version = "2.3.10"
 
 repositories {
     mavenCentral()
@@ -27,7 +27,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("com.nexomc:nexo:1.19.1")
     compileOnly("net.coreprotect:coreprotect:23.1")
-    compileOnly("com.frengor:ultimateadvancementapi:2.7.1")
+    compileOnly("com.frengor:ultimateadvancementapi:2.7.2")
     implementation("io.github.classgraph:classgraph:4.8.180")
 }
 
