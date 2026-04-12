@@ -11,7 +11,7 @@ Automatically register your event listeners without needing to manually register
 
 ### PaperPlugin class
 
-Automatically handle plugin dependencies (currently supports FoliaLib, CommandAPI, and ScoreboardLib) with verbose logging and automatically register listeners and variables.
+Automatically handle plugin dependencies (currently supports FoliaLib, CommandAPI, ScoreboardLib and others) with verbose logging and automatically register listeners and variables.
 
 ### CustomItem, CustomItemDSL & CustomItemRegistry
 
@@ -37,7 +37,7 @@ Add the dependency:
 
 ```kts
 dependencies {
-    implementation("com.github.justorl:UtilsLib:2.3.8")
+    implementation("com.github.justorl:UtilsLib:2.3.11")
 }
 ```
 
@@ -68,7 +68,7 @@ Add the dependency:
 <dependency>
   <groupId>com.github.justorl</groupId>
   <artifactId>UtilsLib</artifactId>
-  <version>2.3.8</version>
+  <version>2.3.11</version>
 </dependency>
 ```
 

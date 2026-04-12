@@ -20,7 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin
 
 abstract class PaperPlugin(
     val id: String,
-    val verboseOutput: Boolean = false
+    private val pluginOptions: PluginOptions,
 ) : JavaPlugin() {
 
     open fun load() {}
@@ -32,11 +32,22 @@ abstract class PaperPlugin(
 
         if (hasCommandApi()) {
             verboseLog("Initializing CommandAPI step 1/2")
-            CommandAPI.onLoad(
-                CommandAPIPaperConfig(this)
-                    .setNamespace(id)
-                    .verboseOutput(verboseOutput)
-            )
+            val config = CommandAPIPaperConfig(this)
+            val options = pluginOptions.commandApiOptions
+
+            if (options.id != null) config.setNamespace(options.id)
+            else config.setNamespace(id)
+
+            if (options.verboseOutput != null) config.verboseOutput(options.verboseOutput)
+            if (options.silentLogs != null)  config.silentLogs(options.silentLogs)
+            if (options.fallbackToLatestNMS != null) config.fallbackToLatestNMS(options.fallbackToLatestNMS)
+            if (options.addSkipSenderProxy != null) for (sender in options.addSkipSenderProxy) { config.addSkipSenderProxy(sender) }
+            if (options.missingExecutorImplementationMessage != null) config.missingExecutorImplementationMessage(options.missingExecutorImplementationMessage)
+            if (options.dispatcherFile != null) config.dispatcherFile(options.dispatcherFile)
+            if (options.enableNetworking != null) config.enableNetworking(options.enableNetworking)
+            if (options.makeNetworkingExceptionsWarnings != null) config.makeNetworkingExceptionsWarnings(options.makeNetworkingExceptionsWarnings)
+
+            CommandAPI.onLoad(config)
         }
 
         load()
@@ -54,7 +65,7 @@ abstract class PaperPlugin(
             verboseLog("Initializing FoliaLib step 1/1")
 
             PluginContext.foliaLib =
-                FoliaLib(this)
+                FoliaLib(this, pluginOptions.foliaLibOptions)
 
         } else verboseLog("FoliaLib not found")
 
@@ -120,6 +131,6 @@ abstract class PaperPlugin(
     }
 
     private fun verboseLog(message: String) {
-        if (verboseOutput) logger.info("[$id - UtilsLib] $message")
+        if (pluginOptions.verboseOutput) logger.info("[$id - UtilsLib] $message")
     }
 }
