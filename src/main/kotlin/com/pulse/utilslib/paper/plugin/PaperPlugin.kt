@@ -27,7 +27,7 @@ abstract class PaperPlugin(
     open fun enable() {}
     open fun disable() {}
 
-    override fun onLoad() {
+    final override fun onLoad() {
         PluginContext.plugin = this
 
         if (hasCommandApi()) {
@@ -53,7 +53,7 @@ abstract class PaperPlugin(
         load()
     }
 
-    override fun onEnable() {
+    final override fun onEnable() {
         if (hasCommandApi()) {
             verboseLog("Initializing CommandAPI step 2/2")
 
@@ -123,7 +123,7 @@ abstract class PaperPlugin(
         enable()
     }
 
-    override fun onDisable() {
+    final override fun onDisable() {
         if (hasCommandApi()) CommandAPI.onDisable()
         if (hasScoreboardLib()) PluginContext.scoreboardLib.close()
 
